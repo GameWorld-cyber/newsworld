@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News World - نیوز ورلڈ | Global Independent Journalism</title>
+  <meta name="description" content="News World - بین الاقوامی اور ملکی خبروں، تجزیات اور صحافتی منشور کا معتبر پلیٹ فارم۔">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+
+  <!-- گوگل ایڈسینس کا باضابطہ تصدیقی اسکرپٹ -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7273606592988187"
+     crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --primary: #c90000;
+      --primary-dark: #8a0000;
+      --bg: #0f1115;
+      --card-bg: #1a1d24;
+      --text: #f0f2f5;
+      --text-muted: #9ba3af;
+      --border: #2a2e39;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    header {
+      background: linear-gradient(180deg, #181b22 0%, var(--bg) 100%);
+      border-bottom: 2px solid var(--border);
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    .brand h1 {
+      color: #fff;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    .brand span {
+      color: var(--primary);
+    }
+
+    .brand p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+
+    .ticker-bar {
+      background-color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      padding: 8px 15px;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    .ticker-badge {
+      background-color: #fff;
+      color: var(--primary);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-left: 10px;
+      font-size: 0.8rem;
+    }
+
+    .nav-container {
+      overflow-x: auto;
+      white-space: nowrap;
+      background-color: #14171d;
+      border-bottom: 1px solid var(--border);
+      padding: 10px;
+      text-align: center;
+    }
+
+    .nav-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 3px;
+      background: var(--card-bg);
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .nav-btn:hover, .nav-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      color: #fff;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .news-item {
+      border: 1px solid var(--border);
+      padding: 15px;
+      border-radius: 6px;
+      background-color: #13151b;
+    }
+
+    .news-item h3 {
+      color: #fff;
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+    }
+
+    .news-item p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* ایڈسینس یونٹ باکس */
+    .adsense-container {
+      margin: 25px 0;
+      text-align: center;
+      background-color: #111419;
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 15px;
+      min-height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    footer {
+      background-color: #0b0c0e;
+      border-top: 1px solid var(--border);
+      padding: 30px 15px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 4px 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .copyright {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <h1>NEWS <span>WORLD</span> | نیوز ورلڈ</h1>
+      <p>معیاری خبریں، ادارتی منشور اور غیر جانبدارانہ صحافت</p>
+    </div>
+  </header>
+
+  <div class="ticker-bar">
+    <span class="ticker-badge">بریکنگ نیوز</span>
+    <span id="ticker-text">نیوز ورلڈ لائیو پورٹل پر تازہ ترین عالمی اور ملکی خبریں دستیاب ہیں۔</span>
+  </div>
+
+  <nav class="nav-container">
+    <a href="?page=home" class="nav-btn" onclick="navigate('home', event)">تمام خبریں</a>
+    <a href="?page=world" class="nav-btn" onclick="navigate('world', event)">عالمی خبریں</a>
+    <a href="?page=politics" class="nav-btn" onclick="navigate('politics', event)">سیاست و سفارت کاری</a>
+    <a href="?page=business" class="nav-btn" onclick="navigate('business', event)">معیشت و تجارت</a>
+    <a href="?page=press-clubs" class="nav-btn" onclick="navigate('press-clubs', event)">پریس کلبز</a>
+    <a href="?page=ministries" class="nav-btn" onclick="navigate('ministries', event)">وزارتیں</a>
+    <a href="?page=journalist" class="nav-btn" onclick="navigate('journalist', event)">جرنلسٹ پورٹل</a>
+  </nav>
+
+  <main class="container" id="content-container">
+    <!-- اندرونی صفحات جاوا اسکرپٹ سے یہاں لوڈ ہوں گے -->
+  </main>
+
+  <!-- لائیو ایڈسینس ایڈ سلاٹ -->
+  <div class="container">
+    <div class="adsense-container">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7273606592988187"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="?page=about" onclick="navigate('about', event)">ہمارے بارے میں (About Us)</a>
+      <a href="?page=privacy" onclick="navigate('privacy', event)">پرائیویسی پالیسی (Privacy Policy)</a>
+      <a href="?page=disclaimer" onclick="navigate('disclaimer', event)">ڈسکلیمر (Disclaimer)</a>
+      <a href="?page=terms" onclick="navigate('terms', event)">شرائط و ضوابط (Terms)</a>
+      <a href="?page=editorial" onclick="navigate('editorial', event)">ادارتی منشور (Editorial)</a>
+      <a href="?page=charter" onclick="navigate('charter', event)">چارٹر (Charter)</a>
+      <a href="?page=author" onclick="navigate('author', event)">مصنف (Author)</a>
+      <a href="?page=contact" onclick="navigate('contact', event)">رابطہ کریں (Contact)</a>
+    </div>
+    <p class="copyright">© 2026 NewsWorld.life - جملہ حقوق محفوظ ہیں۔</p>
+  </footer>
+
+  <script>
+    const pages = {
+      home: `
+        <div class="card">
+          <h2>تازہ ترین اہم خبریں</h2>
+          <div class="news-grid">
+            <div class="news-item">
+              <h3>عالمی معیشت اور ٹیکنالوجی کی نئی پیش رفت</h3>
+              <p>دنیا بھر میں ڈیجیٹل معیشت، فری لانسنگ اور خود مختار صحافت کے میدان میں تیز رفتار تبدیلیاں جاری ہیں۔</p>
+            </div>
+            <div class="news-item">
+              <h3>مشرقِ وسطیٰ اور ایشیائی سفارتی تعلقات کا جائزہ</h3>
+              <p>نئے تجارتی راستوں اور امن معاہدوں پر مختلف حکومتوں کے درمیان اعلیٰ سطحی مذاکرات کا نیا دور شروع۔</p>
+            </div>
+            <div class="news-item">
+              <h3>جدید میڈیا پورٹلز اور معلومات کی رسائی</h3>
+              <p>عوامی آگاہی اور آزاد میڈیا کے ذریعے سچائی کو اجاگر کرنے کے لیے نیوز ورلڈ کا عزم برقرار ہے۔</p>
+            </div>
+          </div>
+        </div>
+      `,
+      world: `
+        <div class="card">
+          <h2>عالمی خبریں (World News)</h2>
+          <p>امریکہ، یورپ، مشرقِ وسطیٰ اور ایشیا کے خطوں سے لمحہ بہ لمحہ بین الاقوامی حالات، جنگ و امن کے امور اور خارجہ پالیسی کے تجزیات۔</p>
+        </div>
+      `,
+      politics: `
+        <div class="card">
+          <h2>سیاست و سفارت کاری (Politics & Diplomacy)</h2>
+          <p>حکومتی فیصلوں، سفارتی تعلقات، ریاستی منشور اور جمہوری اقدار پر مبنی تفصیلی رپورٹس اور اہم سیاسی پیش رفت۔</p>
+        </div>
+      `,
+      business: `
+        <div class="card">
+          <h2>معیشت و تجارت (Business & Finance)</h2>
+          <p>اسٹاک مارکیٹ، فری لانسنگ کے مواقع، عالمی تجارت اور روزگار سے متعلق مستند خبریں اور اقتصادی تبصرے۔</p>
+        </div>
+      `,
+      'press-clubs': `
+        <div class="card">
+          <h2>پریس کلبز (Press Clubs Network)</h2>
+          <p>مقامی اور بین الاقوامی صحافیوں کے حقوق، پریس کلبز کی سرگرمیاں اور آزاد صحافت کے فروغ کے لیے نیٹ ورکنگ ڈیسک۔</p>
+        </div>
+      `,
+      ministries: `
+        <div class="card">
+          <h2>حکومتی وائر (Govt Ministries Wire)</h2>
+          <p>حکومتی وزارتوں، سرکاری اعلانات، عوامی فلاحی پالیسیوں اور نوٹیفیکیشنز کا باضابطہ ریکارڈ۔</p>
+        </div>
+      `,
+      journalist: `
+        <div class="card">
+          <h2>جرنلسٹ پورٹل (Journalist Portal)</h2>
+          <p>لکھاریوں، مصنفین اور صحافیوں کے لیے اپنا مواد اور مضامین شائع کرنے کا خود مختار پلیٹ فارم۔</p>
+        </div>
+      `,
+      about: `
+        <div class="card">
+          <h2>ہمارے بارے میں (About News World)</h2>
+          <p>نیوز ورلڈ ایک خود مختار، شفاف اور آزاد آن لائن صحافتی ادارہ ہے جس کا مقصد دنیا بھر کی حقائق پر مبنی خبریں اور تحقیقی مضامین قارئین تک پہنچانا ہے۔</p>
+        </div>
+      `,
+      privacy: `
+        <div class="card">
+          <h2>پرائیویسی پالیسی (Privacy Policy)</h2>
+          <p>نیوز ورلڈ اپنے قارئین کی پرائیویسی کا مکمل احترام کرتا ہے۔ ہماری ویب سائٹ پر قارئین کی ذاتی معلومات تیسرے فریق کو فروخت نہیں کی جاتیں۔</p>
+          <br>
+          <p>ہم صارف کے تجربے کو بہتر بنانے اور گوگل ایڈسینس کے معیاری اشتہارات دکھانے کے لیے کوکیز (Cookies) کا محفوظ استعمال کرتے ہیں۔ مزید معلومات کے لیے ہماری قانونی ٹیم سے رابطہ کیا جا سکتا ہے۔</p>
+        </div>
+      `,
+      disclaimer: `
+        <div class="card">
+          <h2>ڈسکلیمر (Disclaimer)</h2>
+          <p>نیوز ورلڈ پر شائع ہونے والی خبریں عوامی ذرائع، سرکاری پریس ریلیز اور صحافتی تحقیق پر مبنی ہوتی ہیں۔ ہم خبر کی صداقت اور درستگی کو یقینی بنانے کی ہر ممکن کوشش کرتے ہیں۔</p>
+        </div>
+      `,
+      terms: `
+        <div class="card">
+          <h2>شرائط و ضوابط (Terms of Service)</h2>
+          <p>اس ویب سائٹ کا استعمال ہماری طے شدہ قانونی شرائط کے تحت ہے۔ نفرت انگیز مواد، غیر اخلاقی تبصرے اور کاپی رائٹ کی خلاف ورزی سختی سے ممنوع ہے۔</p>
+        </div>
+      `,
+      editorial: `
+        <div class="card">
+          <h2>ادارتی پالیسی (Editorial Mission)</h2>
+          <p>ہمارا ادارتی مقصد سچائی، توازن، غیر جانبداری اور عوامی فلاح کا تحفظ ہے۔ ہمارا قلم کسی دباؤ یا تعصب کا شکار ہوئے بغیر عوام کی آواز بنتا ہے۔</p>
+        </div>
+      `,
+      charter: `
+        <div class="card">
+          <h2>صحافتی چارٹر (Journalistic Charter)</h2>
+          <p>نیوز ورلڈ کا صحافتی منشور سچائی کی تلاش، حقائق کی جانچ، انسانی حقوق کی پاسداری اور عالمی امن کے فروغ پر استوار ہے۔</p>
+        </div>
+      `,
+      author: `
+        <div class="card">
+          <h2>مصنف اور مدیر کا تعارف (Author Profile)</h2>
+          <p>نیوز ورلڈ کے بانی اور چیف ایڈیٹر ایک باصلاحیت مصنف اور آزاد صحافی ہیں، جو قلم اور ٹیکنالوجی کے ذریعے معاشرے میں مثبت سوچ اور عالمی سطح پر سچائی کے فروغ کے لیے کوشاں ہیں۔</p>
+        </div>
+      `,
+      contact: `
+        <div class="card">
+          <h2>رابطہ کریں (Contact Us)</h2>
+          <p>کسی بھی خبر، مشورے، اشتہارات یا شکایت کے لیے آپ ہماری ٹیم سے باضابطہ رابطہ کر سکتے ہیں:</p>
+          <br>
+          <p><strong>ای میل:</strong> oneworldmovement6@gmail.com</p>
+        </div>
+      `
+    };
+
+    function loadPage(pageKey) {
+      const container = document.getElementById('content-container');
+      const cleanKey = pageKey.replace('?page=', '').replace('/', '').toLowerCase();
+      
+      if (pages[cleanKey]) {
+        container.innerHTML = pages[cleanKey];
+      } else {
+        container.innerHTML = pages['home'];
+      }
+      window.scrollTo(0, 0);
+    }
+
+    function navigate(pageKey, event) {
+      if (event) event.preventDefault();
+      history.pushState(null, '', '?page=' + pageKey);
+      loadPage(pageKey);
+    }
+
+    function checkCurrentUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const page = urlParams.get('page');
+      if (page) {
+        loadPage(page);
+      } else {
+        loadPage('home');
+      }
+    }
+
+    window.addEventListener('popstate', checkCurrentUrl);
+    window.addEventListener('DOMContentLoaded', checkCurrentUrl);
+  </script>
+</body>
+</html>

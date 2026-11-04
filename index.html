@@ -47,11 +47,22 @@
 
     .brand h1 {
       color: #fff;
-      font-size: 2rem;
+      font-size: 1.8rem;
       letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
-    .brand span {
+    .brand h1 .en-title {
+      color: #fff;
+      font-family: Arial, sans-serif;
+      direction: ltr;
+    }
+
+    .brand h1 .en-title span {
       color: var(--primary);
     }
 
@@ -78,6 +89,7 @@
       font-weight: bold;
       margin-left: 10px;
       font-size: 0.8rem;
+      flex-shrink: 0;
     }
 
     .nav-container {
@@ -87,6 +99,7 @@
       border-bottom: 1px solid var(--border);
       padding: 10px;
       text-align: center;
+      -webkit-overflow-scrolling: touch;
     }
 
     .nav-btn {
@@ -121,6 +134,12 @@
       border-radius: 8px;
       padding: 20px;
       margin-bottom: 20px;
+      animation: fadeIn 0.25s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .card h2 {
@@ -128,6 +147,7 @@
       border-bottom: 2px solid var(--primary);
       padding-bottom: 8px;
       margin-bottom: 15px;
+      font-size: 1.3rem;
     }
 
     .news-grid {
@@ -141,6 +161,12 @@
       padding: 15px;
       border-radius: 6px;
       background-color: #13151b;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .news-item:hover {
+      border-color: var(--primary);
     }
 
     .news-item h3 {
@@ -154,7 +180,6 @@
       font-size: 0.9rem;
     }
 
-    /* ایڈسینس یونٹ باکس */
     .adsense-container {
       margin: 25px 0;
       text-align: center;
@@ -189,6 +214,7 @@
       text-decoration: none;
       font-size: 0.85rem;
       padding: 4px 8px;
+      cursor: pointer;
     }
 
     .footer-links a:hover {
@@ -205,7 +231,11 @@
 
   <header>
     <div class="brand">
-      <h1>NEWS <span>WORLD</span> | نیوز ورلڈ</h1>
+      <h1>
+        <span class="en-title">NEWS <span>WORLD</span></span>
+        <span>|</span>
+        <span>نیوز ورلڈ</span>
+      </h1>
       <p>معیاری خبریں، ادارتی منشور اور غیر جانبدارانہ صحافت</p>
     </div>
   </header>
@@ -216,43 +246,46 @@
   </div>
 
   <nav class="nav-container">
-    <a href="?page=home" class="nav-btn" onclick="navigate('home', event)">تمام خبریں</a>
-    <a href="?page=world" class="nav-btn" onclick="navigate('world', event)">عالمی خبریں</a>
-    <a href="?page=politics" class="nav-btn" onclick="navigate('politics', event)">سیاست و سفارت کاری</a>
-    <a href="?page=business" class="nav-btn" onclick="navigate('business', event)">معیشت و تجارت</a>
-    <a href="?page=press-clubs" class="nav-btn" onclick="navigate('press-clubs', event)">پریس کلبز</a>
-    <a href="?page=ministries" class="nav-btn" onclick="navigate('ministries', event)">وزارتیں</a>
-    <a href="?page=journalist" class="nav-btn" onclick="navigate('journalist', event)">جرنلسٹ پورٹل</a>
+    <a href="javascript:void(0)" class="nav-btn" data-page="home" onclick="navigate('home')">تمام خبریں</a>
+    <a href="javascript:void(0)" class="nav-btn" data-page="world" onclick="navigate('world')">عالمی خبریں</a>
+    <a href="javascript:void(0)" class="nav-btn" data-page="politics" onclick="navigate('politics')">سیاست و سفارت کاری</a>
+    <a href="javascript:void(0)" class="nav-btn" data-page="business" onclick="navigate('business')">معیشت و تجارت</a>
+    <a href="javascript:void(0)" class="nav-btn" data-page="press-clubs" onclick="navigate('press-clubs')">پریس کلبز</a>
+    <a href="javascript:void(0)" class="nav-btn" data-page="ministries" onclick="navigate('ministries')">وزارتیں</a>
+    <a href="javascript:void(0)" class="nav-btn" data-page="journalist" onclick="navigate('journalist')">جرنلسٹ پورٹل</a>
   </nav>
 
   <main class="container" id="content-container">
-    <!-- اندرونی صفحات جاوا اسکرپٹ سے یہاں لوڈ ہوں گے -->
+    <!-- صفحات یہاں متحرک طور پر لوڈ ہوں گے -->
   </main>
 
-  <!-- لائیو ایڈسینس ایڈ سلاٹ -->
+  <!-- ایڈسینس کنٹینر -->
   <div class="container">
     <div class="adsense-container">
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-7273606592988187"
+           data-ad-slot=""
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
       <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
+           try {
+             (adsbygoogle = window.adsbygoogle || []).push({});
+           } catch(e) {}
       </script>
     </div>
   </div>
 
   <footer>
     <div class="footer-links">
-      <a href="?page=about" onclick="navigate('about', event)">ہمارے بارے میں (About Us)</a>
-      <a href="?page=privacy" onclick="navigate('privacy', event)">پرائیویسی پالیسی (Privacy Policy)</a>
-      <a href="?page=disclaimer" onclick="navigate('disclaimer', event)">ڈسکلیمر (Disclaimer)</a>
-      <a href="?page=terms" onclick="navigate('terms', event)">شرائط و ضوابط (Terms)</a>
-      <a href="?page=editorial" onclick="navigate('editorial', event)">ادارتی منشور (Editorial)</a>
-      <a href="?page=charter" onclick="navigate('charter', event)">چارٹر (Charter)</a>
-      <a href="?page=author" onclick="navigate('author', event)">مصنف (Author)</a>
-      <a href="?page=contact" onclick="navigate('contact', event)">رابطہ کریں (Contact)</a>
+      <a href="javascript:void(0)" onclick="navigate('about')">ہمارے بارے میں</a>
+      <a href="javascript:void(0)" onclick="navigate('privacy')">پرائیویسی پالیسی</a>
+      <a href="javascript:void(0)" onclick="navigate('disclaimer')">ڈسکلیمر</a>
+      <a href="javascript:void(0)" onclick="navigate('terms')">شرائط و ضوابط</a>
+      <a href="javascript:void(0)" onclick="navigate('editorial')">ادارتی منشور</a>
+      <a href="javascript:void(0)" onclick="navigate('charter')">چارٹر</a>
+      <a href="javascript:void(0)" onclick="navigate('author')">مصنف</a>
+      <a href="javascript:void(0)" onclick="navigate('contact')">رابطہ کریں</a>
     </div>
     <p class="copyright">© 2026 NewsWorld.life - جملہ حقوق محفوظ ہیں۔</p>
   </footer>
@@ -263,15 +296,15 @@
         <div class="card">
           <h2>تازہ ترین اہم خبریں</h2>
           <div class="news-grid">
-            <div class="news-item">
+            <div class="news-item" onclick="navigate('business')">
               <h3>عالمی معیشت اور ٹیکنالوجی کی نئی پیش رفت</h3>
               <p>دنیا بھر میں ڈیجیٹل معیشت، فری لانسنگ اور خود مختار صحافت کے میدان میں تیز رفتار تبدیلیاں جاری ہیں۔</p>
             </div>
-            <div class="news-item">
+            <div class="news-item" onclick="navigate('politics')">
               <h3>مشرقِ وسطیٰ اور ایشیائی سفارتی تعلقات کا جائزہ</h3>
               <p>نئے تجارتی راستوں اور امن معاہدوں پر مختلف حکومتوں کے درمیان اعلیٰ سطحی مذاکرات کا نیا دور شروع۔</p>
             </div>
-            <div class="news-item">
+            <div class="news-item" onclick="navigate('world')">
               <h3>جدید میڈیا پورٹلز اور معلومات کی رسائی</h3>
               <p>عوامی آگاہی اور آزاد میڈیا کے ذریعے سچائی کو اجاگر کرنے کے لیے نیوز ورلڈ کا عزم برقرار ہے۔</p>
             </div>
@@ -281,7 +314,7 @@
       world: `
         <div class="card">
           <h2>عالمی خبریں (World News)</h2>
-          <p>امریکہ، یورپ، مشرقِ وسطیٰ اور ایشیا کے خطوں سے لمحہ بہ لمحہ بین الاقوامی حالات، جنگ و امن کے امور اور خارجہ پالیسی کے تجزیات۔</p>
+          <p>امریکہ، یورپ، مشرقِ وسطیٰ اور ایشیا کے خطوں سے لمحہ بہ لمحہ بین الاقوامی حالات، جنگ و امن کے امور اور خارجہ پالیسی کے تفصیلی تجزئیے۔</p>
         </div>
       `,
       politics: `
@@ -316,7 +349,7 @@
       `,
       about: `
         <div class="card">
-          <h2>ہمارے بارے میں (About News World)</h2>
+          <h2>ہمارے بارے میں - نیوز ورلڈ</h2>
           <p>نیوز ورلڈ ایک خود مختار، شفاف اور آزاد آن لائن صحافتی ادارہ ہے جس کا مقصد دنیا بھر کی حقائق پر مبنی خبریں اور تحقیقی مضامین قارئین تک پہنچانا ہے۔</p>
         </div>
       `,
@@ -325,7 +358,7 @@
           <h2>پرائیویسی پالیسی (Privacy Policy)</h2>
           <p>نیوز ورلڈ اپنے قارئین کی پرائیویسی کا مکمل احترام کرتا ہے۔ ہماری ویب سائٹ پر قارئین کی ذاتی معلومات تیسرے فریق کو فروخت نہیں کی جاتیں۔</p>
           <br>
-          <p>ہم صارف کے تجربے کو بہتر بنانے اور گوگل ایڈسینس کے معیاری اشتہارات دکھانے کے لیے کوکیز (Cookies) کا محفوظ استعمال کرتے ہیں۔ مزید معلومات کے لیے ہماری قانونی ٹیم سے رابطہ کیا جا سکتا ہے۔</p>
+          <p>ہم صارف کے تجربے کو بہتر بنانے اور گوگل ایڈسینس کے معیاری اشتہارات دکھانے کے لیے کوکیز کا محفوظ استعمال کرتے ہیں۔</p>
         </div>
       `,
       disclaimer: `
@@ -370,34 +403,54 @@
 
     function loadPage(pageKey) {
       const container = document.getElementById('content-container');
-      const cleanKey = pageKey.replace('?page=', '').replace('/', '').toLowerCase();
-      
-      if (pages[cleanKey]) {
-        container.innerHTML = pages[cleanKey];
+      if (!container) return;
+
+      let key = 'home';
+      if (pageKey) {
+        key = pageKey.toString().replace('?page=', '').replace('/', '').trim().toLowerCase();
+      }
+
+      if (pages[key]) {
+        container.innerHTML = pages[key];
       } else {
         container.innerHTML = pages['home'];
+        key = 'home';
       }
-      window.scrollTo(0, 0);
+
+      // مینو بٹنوں کی ایکٹو کلاس اپ ڈیٹ کریں
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        if (btn.getAttribute('data-page') === key) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function navigate(pageKey, event) {
-      if (event) event.preventDefault();
-      history.pushState(null, '', '?page=' + pageKey);
-      loadPage(pageKey);
+    function navigate(pageKey) {
+      const cleanKey = pageKey ? pageKey.replace('?page=', '').replace('/', '').trim().toLowerCase() : 'home';
+      const newUrl = cleanKey === 'home' ? window.location.pathname : '?page=' + cleanKey;
+      window.history.pushState({ page: cleanKey }, '', newUrl);
+      loadPage(cleanKey);
     }
 
     function checkCurrentUrl() {
       const urlParams = new URLSearchParams(window.location.search);
       const page = urlParams.get('page');
-      if (page) {
-        loadPage(page);
-      } else {
-        loadPage('home');
-      }
+      loadPage(page || 'home');
     }
 
-    window.addEventListener('popstate', checkCurrentUrl);
-    window.addEventListener('DOMContentLoaded', checkCurrentUrl);
+    window.addEventListener('popstate', (e) => {
+      if (e.state && e.state.page) {
+        loadPage(e.state.page);
+      } else {
+        checkCurrentUrl();
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', checkCurrentUrl);
   </script>
 </body>
 </html>
